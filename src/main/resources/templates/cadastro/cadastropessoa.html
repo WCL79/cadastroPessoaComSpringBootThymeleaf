@@ -3,6 +3,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/materialize-v1.0.0/materialize/css/materialize.css"  media="screen,projection"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
 <body>
 	<form action="salvarpessoa" method="post">
@@ -12,7 +18,23 @@
 	<input name="sobrenome">
 	<label>Idade</label>
 	<input name="idade">
-	<input type="submit" value="Salvar">
+	<input class="btn waves-effect waves-light" type="submit" value="Salvar">
 	</form>
+	
+	<a href="/listapessoas">Lista de Pessoas do Cadastro</a>
+	
+	<table>
+		<tr th:each = "pessoa : ${pessoas}">
+		<td th:text = "${pessoa.id}"></td>
+		<td th:text = "${pessoa.nome}"></td>
+		<td th:text = "${pessoa.idade}"></td>
+		<td><a th:href="@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Editar</a>
+		</tr>
+	</table>
+	
+	 <!--JavaScript at end of body for optimized loading-->
+	  <script type="text/javascript" src="materialize-v1.0.0/materializejs/materialize.js"></script>
+      <script type="text/javascript" src="materialize-v1.0.0/materializejs/materialize.min.js"></script>
+    </body>
 </body>
 </html>
